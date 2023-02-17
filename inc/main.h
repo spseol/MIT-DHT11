@@ -32,6 +32,9 @@
 #define BTN_PIN  GPIO_PIN_4
 #endif
 
+#define LED2_PORT GPIOC
+#define LED2_PIN  GPIO_PIN_6
+
 // functions
 void setup(void);
 
