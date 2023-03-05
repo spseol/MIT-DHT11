@@ -1,3 +1,12 @@
+DHT11
+===========================
+
+* <https://components101.com/sites/default/files/component_datasheet/DHT11-Temperature-Sensor.pdf>
+* <https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf>
+* https://gitlab.com/wykys/stm8-xikon/-/blob/main/exti/exti_intro.md
+
+
+
 STM8 (SPŠE) toolchain
 ==============================
 
