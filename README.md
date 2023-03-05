@@ -1,9 +1,11 @@
 DHT11
 ===========================
 
+* [Multitasking -- knihovna Milis](http://elektromys.eu/clanky/stm8_11_milis/clanek.html)
+* [Stavový automat](http://elektromys.eu/clanky/stm8_12_automat/clanek.html)
+* <https://gitlab.com/wykys/stm8-xikon/-/blob/main/exti/exti_intro.md>
 * <https://components101.com/sites/default/files/component_datasheet/DHT11-Temperature-Sensor.pdf>
 * <https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf>
-* https://gitlab.com/wykys/stm8-xikon/-/blob/main/exti/exti_intro.md
 
 
 
