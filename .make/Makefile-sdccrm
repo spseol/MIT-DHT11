@@ -25,7 +25,9 @@ ifeq ($(OS),Windows_NT)
 	CC_ROOT = "/c/Program Files/SDCC"
 	STVP_ROOT = "/c/Program Files (x86)/STMicroelectronics/st_toolset/stvp"
 else
-	CC_ROOT = /usr
+	#CC_ROOT = /usr
+	#CC_ROOT = /usr/local
+	CC_ROOT = /usr/local/stow/sdcc-4.2.0
 endif
 ######################################################################################
 CC = $(CC_ROOT)/bin/sdcc
@@ -127,8 +129,7 @@ $(TARGET).ihx: $(PRJ_ASSMS) $(SPL_ASSMS)
 	@echo asm2obj
 	bash .make/asm2obj $^
 	@echo linking 
-	$(CC) $(CFLAGS) -o $(TARGET).ihx $(PRJ_OBJECTS) $(SPL_OBJECTS) \
-		> .make/linker_output 2>&1 || rm -f $(TARGET).ihx
+	$(CC) $(CFLAGS) -o $(TARGET).ihx $(PRJ_OBJECTS) $(SPL_OBJECTS) >.make/linker_output 2>&1 || rm -f $(TARGET).ihx
 	+bash .make/reference2exclude .make/linker_output
 	$(LN) $@ ./out.ihx
 	@echo 
@@ -138,8 +139,7 @@ $(TARGET).ihx: $(PRJ_ASSMS) $(SPL_ASSMS)
 
 
 $(OUTPUT_DIR)/%.asm: %.c Makefile exclude_reference $(PRJ_INCS) | $(OUTPUT_DIR)
-	$(CC) $(CFLAGS) -D$(DEVICE) $(INCLUDE) -DSKIP_TRAPS=$(SKIP_TRAPS) -c $< -o $@ \
-		2>&1 | $(PYTHON) .make/recolor.py; exit $${PIPESTATUS[0]}
+	+$(CC) $(CFLAGS) -D$(DEVICE) $(INCLUDE) -DSKIP_TRAPS=$(SKIP_TRAPS) -c $< -o $@ 2>&1 | $(PYTHON) .make/recolor.py; exit $${PIPESTATUS[0]}
 
 $(OUTPUT_DIR):
 	$(MKDIR) -p $(OUTPUT_DIR)

@@ -1,5 +1,5 @@
 build-*
-.vscode/*.log
 .make/linker_output
 out.ihx
 out.elf
+__pycache__
